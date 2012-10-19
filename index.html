@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+  <head>
+   <title>jQuery showLoading example</title>
+   <link href="css/showLoading.css" rel="stylesheet" media="screen" /> 
+   <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+   <script type="text/javascript" src="js/jquery.showLoading.js"></script>
+   <script type="text/javascript">
+	jQuery(document).ready(
+		function() {
+	    jQuery('a').click(
+			function() {
+				jQuery('#activity_pane').showLoading(
+	 			 {
+				    'afterShow': 
+					function() {
+						setTimeout( "jQuery('#activity_pane').hideLoading()", 1000 );
+					}
+				 }
+				);
+			}
+		  ); 
+		}
+	);
+</script>
+
+  </head>
+  <body>
+  	<a href="#">simulate 1-second Ajax load</a>
+	<div id="activity_pane"></div>
+    <div style="clear:both;"></div>
+  </body>
+</html>
